@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Восстановление после праздников | Бесплатный эфир</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+                cream: {
+                    50: '#FDFCF8',
+                    100: '#FAF7F2',
+                    200: '#F0EBE0',
+                },
+                fresh: {
+                    100: '#E0F2F1',
+                    300: '#80CBC4',
+                    500: '#26A69A',
+                    600: '#00897B',
+                },
+                coral: {
+                    100: '#FFCCBC',
+                    300: '#FFAB91',
+                    400: '#FF8A65',
+                    500: '#FF7043',
+                },
+                stone: {
+                    800: '#44403C',
+                    600: '#78716C',
+                    500: '#A8A29E',
+                }
+            },
+            boxShadow: {
+                'soft': '0 10px 40px -10px rgba(38, 166, 154, 0.15)',
+                'soft-hover': '0 20px 50px -10px rgba(38, 166, 154, 0.25)',
+                'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                'glow': '0 0 30px rgba(255, 112, 67, 0.2)',
+                'card-hover': '0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 0 20px rgba(38, 166, 154, 0.1)',
+            },
+            animation: {
+                'blob': 'blob 10s infinite',
+                'float': 'float 6s ease-in-out infinite',
+                'float-delayed': 'float 6s ease-in-out 3s infinite',
+                'shimmer': 'shimmer 2.5s linear infinite',
+                'text-shimmer': 'textShimmer 3s ease-in-out infinite alternate',
+                'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+                blob: {
+                    '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                    '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                    '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                    '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                },
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-15px)' },
+                },
+                shimmer: {
+                    '0%': { backgroundPosition: '-200% 0' },
+                    '100%': { backgroundPosition: '200% 0' },
+                },
+                textShimmer: {
+                    '0%': { backgroundPosition: '0% 50%' },
+                    '100%': { backgroundPosition: '100% 50%' },
+                }
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #FAF7F2;
+        color: #44403C;
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .glass:hover {
+        background: rgba(255, 255, 255, 0.85);
+        border-color: #fff;
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 0 20px rgba(38, 166, 154, 0.1);
+      }
+      .glass-strong {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #26A69A 0%, #FF8A65 50%, #26A69A 100%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShimmer 4s ease-in-out infinite alternate;
+      }
+      .blob-bg {
+        position: absolute;
+        filter: blur(80px);
+        z-index: 0;
+        opacity: 0.7;
+        animation: blob 15s infinite alternate;
+      }
+      
+      /* Noise Texture */
+      .bg-noise {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.04;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #FAF7F2; }
+      ::-webkit-scrollbar-thumb { background: #D6D3D1; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #26A69A; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+  <body class="antialiased selection:bg-fresh-300 selection:text-white relative">
+    <div id="root"></div>
+  </body>
+</html>
